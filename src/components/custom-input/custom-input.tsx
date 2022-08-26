@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, h } from '@stencil/core';
 import { Validator, defaultValidator, getValidator } from '../validators';
 
 @Component({
@@ -12,7 +12,7 @@ export class CustomInput {
   @Prop() type: string;
   @Prop() label: string;
   @Prop() validationpattern: any;
-  @Prop() oninputchange: (event: any) => void;
+  @Event() onInputChange: EventEmitter<string>;
   _validator: Validator<string> = defaultValidator;
 
   componentWillLoad() {
@@ -25,7 +25,7 @@ export class CustomInput {
 
   handleChange = (ev) => {
     this.value = ev.target ? ev.target.value : null;
-    this.oninputchange(this.value);
+    this.onInputChange.emit(this.value);
   };
 
   render() {

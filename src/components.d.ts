@@ -9,11 +9,14 @@ export namespace Components {
     interface CustomInput {
         "id": string;
         "label": string;
-        "oninputchange": (event: any) => void;
         "type": string;
         "validationpattern": any;
         "value": string;
     }
+}
+export interface CustomInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLCustomInputElement;
 }
 declare global {
     interface HTMLCustomInputElement extends Components.CustomInput, HTMLStencilElement {
@@ -30,7 +33,7 @@ declare namespace LocalJSX {
     interface CustomInput {
         "id"?: string;
         "label"?: string;
-        "oninputchange"?: (event: any) => void;
+        "onOnInputChange"?: (event: CustomInputCustomEvent<string>) => void;
         "type"?: string;
         "validationpattern"?: any;
         "value"?: string;
