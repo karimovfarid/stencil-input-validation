@@ -18,9 +18,9 @@
 
 ## Events
 
-| Event           | Description | Type                  |
-| --------------- | ----------- | --------------------- |
-| `onInputChange` |             | `CustomEvent<string>` |
+| Event         | Description | Type                  |
+| ------------- | ----------- | --------------------- |
+| `changeInput` |             | `CustomEvent<string>` |
 
 
 ----------------------------------------------

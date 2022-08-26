@@ -12,7 +12,7 @@ export class CustomInput {
   @Prop() type: string;
   @Prop() label: string;
   @Prop() validationpattern: any;
-  @Event() onInputChange: EventEmitter<string>;
+  @Event() changeInput: EventEmitter<string>;
   _validator: Validator<string> = defaultValidator;
 
   componentWillLoad() {
@@ -25,7 +25,7 @@ export class CustomInput {
 
   handleChange = (ev) => {
     this.value = ev.target ? ev.target.value : null;
-    this.onInputChange.emit(this.value);
+    this.changeInput.emit(this.value);
   };
 
   render() {
