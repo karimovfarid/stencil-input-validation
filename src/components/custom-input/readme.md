@@ -9,7 +9,7 @@
 
 | Property            | Attribute           | Description | Type     | Default        |
 | ------------------- | ------------------- | ----------- | -------- | -------------- |
-| `id`                | `id`                |             | `string` | `"default-id"` |
+| `id`                | `id`                |             | `string` | `'default-id'` |
 | `label`             | `label`             |             | `string` | `undefined`    |
 | `type`              | `type`              |             | `string` | `undefined`    |
 | `validationpattern` | `validationpattern` |             | `any`    | `undefined`    |
