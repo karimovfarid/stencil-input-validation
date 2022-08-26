@@ -11,19 +11,21 @@ export class CustomInput {
   @Prop() id: string = "default-id";
   @Prop() type: string;
   @Prop() label: string;
-  @Prop() validationPattern: any;
+  @Prop() validationpattern: any;
+  @Prop() oninputchange: (event: any) => void;
   _validator: Validator<string> = defaultValidator;
 
   componentWillLoad() {
-    this._validator = getValidator<string>(this.validationPattern);
+    this._validator = getValidator<string>(this.validationpattern);
   }
 
   componentWillUpdate() {
-    this._validator = getValidator<string>(this.validationPattern);
+    this._validator = getValidator<string>(this.validationpattern);
   }
 
   handleChange = (ev) => {
     this.value = ev.target ? ev.target.value : null;
+    this.oninputchange(this.value);
   };
 
   render() {

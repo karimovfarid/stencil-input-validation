@@ -1,5 +1,5 @@
 {
-  "name": "input-validation",
+  "name": "stencil-input-validation",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
@@ -12,7 +12,7 @@
   "unpkg": "dist/input-validation/input-validation.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "https://github.com/karimovfarid/stencil-input-validation.git"
   },
   "files": [
     "dist/",

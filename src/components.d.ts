@@ -9,8 +9,9 @@ export namespace Components {
     interface CustomInput {
         "id": string;
         "label": string;
+        "oninputchange": (event: any) => void;
         "type": string;
-        "validationPattern": any;
+        "validationpattern": any;
         "value": string;
     }
 }
@@ -29,8 +30,9 @@ declare namespace LocalJSX {
     interface CustomInput {
         "id"?: string;
         "label"?: string;
+        "oninputchange"?: (event: any) => void;
         "type"?: string;
-        "validationPattern"?: any;
+        "validationpattern"?: any;
         "value"?: string;
     }
     interface IntrinsicElements {
