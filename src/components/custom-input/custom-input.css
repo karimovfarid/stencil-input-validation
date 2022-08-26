@@ -1,0 +1,16 @@
+:host .input-container input {
+  outline: none !important;
+  width: 100%;
+  font-size: 0.8rem;
+  border: 1px solid grey;
+  padding: 0.5rem;
+}
+
+:host .input-container input.input-error {
+  border-color: red!important;
+}
+
+:host .input-container .validation-error {
+  font-size: 0.8rem;
+  color: red;
+}

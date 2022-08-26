@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/input-validation.esm.js"></script>
+    <script nomodule src="/build/input-validation.js"></script>
+  </head>
+  <body>
+  <custom-input
+    id="test-id"
+    type="url"
+    label="Validate web url"
+  ></custom-input>
+  </body>
+  <script>
+    var comp = document.querySelector('custom-input');
+    console.log('comp', comp.validationPattern);
+    let validator = ["url"];
+    comp.validationPattern = validator;
+  </script>
+</html>
