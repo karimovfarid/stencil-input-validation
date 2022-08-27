@@ -11,7 +11,7 @@ export namespace Components {
         "isValid": boolean;
         "label": string;
         "type": string;
-        "validation": RegExp;
+        "validation": string;
         "value": string;
     }
 }
@@ -37,7 +37,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "onChangeInput"?: (event: CustomInputCustomEvent<string>) => void;
         "type"?: string;
-        "validation"?: RegExp;
+        "validation"?: string;
         "value"?: string;
     }
     interface IntrinsicElements {

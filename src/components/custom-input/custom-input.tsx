@@ -1,5 +1,5 @@
 import { Component, Prop, Event, EventEmitter, h, Host } from '@stencil/core';
-import { Validator, defaultValidator } from '../validators';
+import { defaultValidator, getValidator } from '../../utils/validators';
 
 @Component({
   tag: 'custom-input',
@@ -10,25 +10,18 @@ export class CustomInput {
   @Prop({ mutable: true }) value: string;
   @Prop() id: string = 'default-id';
   @Prop() type: string;
-  @Prop() label: string;
-  @Prop() validation: RegExp = new RegExp('');
-  @Prop() isValid: boolean;
+  @Prop({ mutable: true }) label: string;
+  @Prop() validation: string;
+  @Prop({ mutable: true }) isValid: boolean;
   @Event() changeInput: EventEmitter<string>;
-  _validator: Validator<string> = defaultValidator;
-
-  getValidator() {
-    return {
-      validate: (value: string) => !!this.validation.test(value),
-      errorMessage: 'You must enter a valid input params'
-    }
-  }
+  _validator;
 
   componentWillLoad() {
-    this._validator = this.getValidator();
+    this._validator = defaultValidator;
   }
 
   componentWillUpdate() {
-    this._validator = this.getValidator();
+    this._validator = Boolean(this.value) ? getValidator(this.validation) : defaultValidator;
   }
 
   handleChange = (event) => {
@@ -39,21 +32,19 @@ export class CustomInput {
 
   render() {
     const checkValidationState = this._validator.validate(this.value);
+
     return (
       <Host>
-        <div>
-          <div class='input-container'>
+          <div class={`input-container${!checkValidationState ? ' input-error' : ''}`}>
             <label htmlFor={this.id}>{this.label}</label>
             <input
               id={this.id}
-              class={`input-style${!checkValidationState ? ' input-error' : ''}`}
               name={this.id}
               type={this.type}
               value={this.value}
               onInput={this.handleChange} />
             {!checkValidationState && <span class='validation-error'>{this._validator.errorMessage}</span>}
           </div>
-        </div>
       </Host>
     );
   }
