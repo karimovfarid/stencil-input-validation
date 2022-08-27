@@ -8,9 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface CustomInput {
         "id": string;
+        "isValid": boolean;
         "label": string;
         "type": string;
-        "validationpattern": any;
+        "validation": RegExp;
         "value": string;
     }
 }
@@ -32,10 +33,11 @@ declare global {
 declare namespace LocalJSX {
     interface CustomInput {
         "id"?: string;
+        "isValid"?: boolean;
         "label"?: string;
         "onChangeInput"?: (event: CustomInputCustomEvent<string>) => void;
         "type"?: string;
-        "validationpattern"?: any;
+        "validation"?: RegExp;
         "value"?: string;
     }
     interface IntrinsicElements {
