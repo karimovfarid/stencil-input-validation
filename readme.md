@@ -59,17 +59,22 @@ There are three strategies we recommend for using web components built with Sten
 
 The first step for all three of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
 
+
+Recommend way
+We already published this component. You can use [npm i stencil-input-validation]
+(https://www.npmjs.com/package/stencil-input-validation)
+
 ### Script tag
 
 - Put a script tag similar to this `<script type='module' src='https://unpkg.com/my-component@0.0.1/dist/my-component.esm.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
-- Run `npm install my-component --save`
+- Run `npm install custom-input --save`
 - Put a script tag similar to this `<script type='module' src='node_modules/my-component/dist/my-component.esm.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
-- Run `npm install my-component --save`
-- Add an import to the npm packages `import my-component;`
+- Run `npm install custom-input --save`
+- Add an import to the npm packages `import custom-input;`
 - Then you can use the element anywhere in your template, JSX, html etc

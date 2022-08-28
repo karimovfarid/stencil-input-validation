@@ -1,16 +1,26 @@
+$color-red: red;
+$color-green: green;
+$font-family: sans-serif;
+
+$font-size: 16px;
+$font-size-sm: 12px;
+
+$base: 5px;
+
+
 :host {
   .input-container {
-    font-family: sans-serif;
+    font-family: $font-family;
     input {
       outline: none !important;
       box-sizing:border-box;
       width: 100%;
-      padding: 10px;
+      padding: $base * 2;
       margin: 0;
       color: #8a8b8e;
       border: 1px solid #c2c0ca;
       font-style: normal;
-      font-size: 16px;
+      font-size: $font-size;
       appearance: none;
       position: relative;
       display: inline-block;
@@ -18,30 +28,34 @@
     }
 
     .validation-error {
-      font-size: 0.8rem;
-      color: red;
+      font-size: $font-size-sm;
+      color: $color-red;
     }
 
     label {
-      font-size: 15px;
+      font-size: $font-size;
     }
   }
   .input-error {
     label {
-      color: red;
+      color: $color-red;
     }
     input {
-      border-color: red;
+      border-color: $color-red;
     }
   }
 }
 
 .large{
-  padding: 15px!important;
+  padding: $base * 3!important;
 }
 
 .small{
-  padding: 5px!important;
+  padding: $base!important;
+}
+
+.border-green {
+  border-color: $color-green!important;
 }
 
 

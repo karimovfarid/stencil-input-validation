@@ -1,10 +1,11 @@
-import { Component, Prop, Event, EventEmitter, h, Host, Watch } from '@stencil/core';
-import { defaultValidator, getValidator } from '../../utils/validators';
-import { Validator } from '../../interfaces/validator';
+import { Component, Prop, Event, EventEmitter, h, Host, Watch } from "@stencil/core";
+
+import { defaultValidator, getValidator } from "../../utils/validators";
+import { Validator } from "../../interfaces/validator";
 
 @Component({
-  tag: 'custom-input',
-  styleUrl: 'custom-input.scss',
+  tag: "custom-input",
+  styleUrl: "custom-input.scss",
   shadow: true,
 })
 export class CustomInput {
@@ -63,7 +64,7 @@ export class CustomInput {
    */
   @Prop({ mutable: true }) isSubmitted: boolean = false;
 
-  @Watch('isSubmitted')
+  @Watch("isSubmitted")
   validateDate(newValue) {
     this.isSubmitted = newValue
   }
@@ -89,10 +90,9 @@ export class CustomInput {
   };
 
   render() {
-    // const checkValidationState = this._validator.validate(this.value);
     return (
       <Host>
-          <div class={{ 'input-container': true, 'input-error': !this.isValid }}>
+          <div class={{ "input-container": true, "input-error": !this.isValid }}>
             <label htmlFor={this.inputId}>{this.label}</label>
             <input
               id={this.inputId}
@@ -100,9 +100,12 @@ export class CustomInput {
               type={this.type}
               value={this.value}
               onInput={this.handleChange}
-              class={this.size}
+              class={{
+                "border-green": this.isValid && Boolean(this.value),
+                [this.size]: true
+              }}
             />
-            {!this.isValid && <span class='validation-error'>{this.error}</span>}
+            {!this.isValid && <span class="validation-error">{this.error}</span>}
           </div>
       </Host>
     );

@@ -1,5 +1,5 @@
-import { regexFromString } from './regexFromString';
-import { Validator } from '../interfaces/validator';
+import { regexFromString } from "./regexFromString";
+import { Validator } from "../interfaces/validator";
 
 export const defaultValidator: Validator<string> = {
   validate: (_x: any) => true,
