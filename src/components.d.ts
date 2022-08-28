@@ -7,9 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface CustomInput {
-        "id": string;
+        "inputId": string;
+        "isSubmitted": boolean;
         "isValid": boolean;
         "label": string;
+        "name": string;
         "type": string;
         "validation": string;
         "value": string;
@@ -32,9 +34,11 @@ declare global {
 }
 declare namespace LocalJSX {
     interface CustomInput {
-        "id"?: string;
+        "inputId"?: string;
+        "isSubmitted"?: boolean;
         "isValid"?: boolean;
         "label"?: string;
+        "name"?: string;
         "onChangeInput"?: (event: CustomInputCustomEvent<string>) => void;
         "type"?: string;
         "validation"?: string;

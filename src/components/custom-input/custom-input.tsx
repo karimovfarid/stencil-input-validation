@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, h, Host } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, h, Host, Watch } from '@stencil/core';
 import { defaultValidator, getValidator } from '../../utils/validators';
 
 @Component({
@@ -8,20 +8,27 @@ import { defaultValidator, getValidator } from '../../utils/validators';
 })
 export class CustomInput {
   @Prop({ mutable: true }) value: string;
-  @Prop() id: string = 'default-id';
+  @Prop() inputId: string;
   @Prop() type: string;
   @Prop({ mutable: true }) label: string;
   @Prop() validation: string;
   @Prop({ mutable: true }) isValid: boolean;
+  @Prop() name: string;
+  @Prop({ mutable: true }) isSubmitted: boolean = false;
   @Event() changeInput: EventEmitter<string>;
   _validator;
+
+  @Watch('isSubmitted')
+  validateDate(newValue) {
+    this.isSubmitted = newValue
+  }
 
   componentWillLoad() {
     this._validator = defaultValidator;
   }
 
   componentWillUpdate() {
-    this._validator = Boolean(this.value) ? getValidator(this.validation) : defaultValidator;
+    this._validator = Boolean(this.value) || this.isSubmitted  ? getValidator(this.validation) : defaultValidator;
   }
 
   handleChange = (event) => {
@@ -36,10 +43,10 @@ export class CustomInput {
     return (
       <Host>
           <div class={`input-container${!checkValidationState ? ' input-error' : ''}`}>
-            <label htmlFor={this.id}>{this.label}</label>
+            <label htmlFor={this.inputId}>{this.label}</label>
             <input
-              id={this.id}
-              name={this.id}
+              id={this.inputId}
+              name={this.name}
               type={this.type}
               value={this.value}
               onInput={this.handleChange} />
