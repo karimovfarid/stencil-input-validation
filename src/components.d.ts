@@ -7,13 +7,45 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface CustomInput {
+        /**
+          * Takes the error message of the input.
+         */
+        "error": string;
+        /**
+          * Takes the id of the input.
+         */
         "inputId": string;
+        /**
+          * When used in forms, it checks whether the form has been submitted or not.
+         */
         "isSubmitted": boolean;
+        /**
+          * Checks final state of validation.
+         */
         "isValid": boolean;
+        /**
+          * Takes the lable of the input.
+         */
         "label": string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
         "name": string;
+        /**
+          * Determines the size of the input.
+         */
+        "size": "small" | "medium" | "large";
+        /**
+          * Takes the type of the input (url, text, etc).
+         */
         "type": string;
+        /**
+          * A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user.
+         */
         "validation": string;
+        /**
+          * Takes the value of the input.
+         */
         "value": string;
     }
 }
@@ -34,14 +66,49 @@ declare global {
 }
 declare namespace LocalJSX {
     interface CustomInput {
+        /**
+          * Takes the error message of the input.
+         */
+        "error"?: string;
+        /**
+          * Takes the id of the input.
+         */
         "inputId"?: string;
+        /**
+          * When used in forms, it checks whether the form has been submitted or not.
+         */
         "isSubmitted"?: boolean;
+        /**
+          * Checks final state of validation.
+         */
         "isValid"?: boolean;
+        /**
+          * Takes the lable of the input.
+         */
         "label"?: string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
         "name"?: string;
+        /**
+          * Emitted when the value has changed.
+         */
         "onChangeInput"?: (event: CustomInputCustomEvent<string>) => void;
+        /**
+          * Determines the size of the input.
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * Takes the type of the input (url, text, etc).
+         */
         "type"?: string;
+        /**
+          * A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user.
+         */
         "validation"?: string;
+        /**
+          * Takes the value of the input.
+         */
         "value"?: string;
     }
     interface IntrinsicElements {

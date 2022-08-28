@@ -3,7 +3,6 @@ export const regexFromString = (str) => {
     body,
     flags,
   } = String(str)
-    // ts-ignore
     .match(/^\/(?<body>.*)\/(?<flags>[gimsuy]*)$/)?.groups || {};
 
   return RegExp(body, (body && flags));

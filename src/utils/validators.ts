@@ -1,18 +1,8 @@
 import { regexFromString } from './regexFromString';
+import { Validator } from '../interfaces/validator';
 
-export interface Validator<A> {
-  validate: (x: A) => boolean;
-  errorMessage?: string;
-}
-
-export const defaultValidator: Validator<any> = {
+export const defaultValidator: Validator<string> = {
   validate: (_x: any) => true,
-  errorMessage: 'You must enter a valid input params'
-}
-
-export const defaultIsSubmitValidator: Validator<any> = {
-  validate: (_x: any) => false,
-  errorMessage: 'You must enter a valid input params'
 }
 
 export const getValidator = (pattern: string) => {
@@ -21,6 +11,5 @@ export const getValidator = (pattern: string) => {
       const validationRegExp = regexFromString(pattern)
       return !!validationRegExp.test(value)
     },
-    errorMessage: 'You must enter a valid input params'
   }
 }
