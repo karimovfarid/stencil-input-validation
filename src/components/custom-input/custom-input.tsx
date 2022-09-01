@@ -67,6 +67,7 @@ export class CustomInput {
   @Watch("isSubmitted")
   validateDate(newValue) {
     this.isSubmitted = newValue
+    this.setValidatorAndStatus()
   }
 
   _validator: Validator<string>;
